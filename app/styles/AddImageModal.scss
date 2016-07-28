@@ -1,0 +1,31 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+
+.modalBanner {
+	padding-top: 5%;
+	color: black;
+	font-family: Raleway;
+}
+
+.modalBox {
+  margin: auto;
+  background: lightGray;
+  width: 35vw;
+  height: 75vh;
+  text-align: center;
+}
+
+.modalInput {
+	border: 1px solid;
+	width: 75%;
+}
+
+.modalImage {
+	margin-top: 10%;
+	margin-bottom: 10%;
+	width: 85%;
+	height: 50%;
+}
+
+.modalButton {
+	margin: 5px;
+}

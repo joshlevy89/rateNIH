@@ -9,6 +9,10 @@ export { mark_attending, try_remove_attendee, mark_remove}
 // signin actions
 export * from './signin_actions'
 
+// wall actions
+import { get_posts_by_user_id, save_post } from './posts_actions';
+export { get_posts_by_user_id, save_post }
+
 // triggered when socket io notices someone mark an event
 export function update_places(updated_place) {
 	return {

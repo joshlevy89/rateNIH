@@ -43,7 +43,7 @@ if (!isProduction) {
 }
 
 db.dbConnect(function(err,db_instance){
-	routes(app, db_instance, io)
+	routes(app, db_instance, io);
 })
 
 // It is important to catch any errors from the proxy or the

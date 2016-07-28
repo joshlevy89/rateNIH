@@ -5,8 +5,20 @@ import { check_login_status, signin, receive_results } from '../actions'
 import { Link } from 'react-router'
 require('../../styles/index.scss')
 require('../../styles/SigninScreen.scss')
+import { get_posts_by_user_id } from '../actions'
+
 
 class LoginScreen extends Component {
+
+  constructor(props) {
+    super(props);
+    // todo: replace this mock posts fetch with fetch for the 
+    // authenticated user (or for another user's page for 
+    // unauthenticated user)
+    const {dispatch} = this.props
+    dispatch(get_posts_by_user_id(0));
+  }
+
   render() {
     
       const { user_name, dispatch } = this.props
