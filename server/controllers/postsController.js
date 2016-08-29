@@ -1,4 +1,5 @@
 function postsController(db, io) {
+
 	this.savePost = function(req,res){
 		var userId = req.body.userId
 		var imageUrl = req.body.imageUrl
@@ -9,6 +10,15 @@ function postsController(db, io) {
 			userId: userId,
 			imageUrl: imageUrl
 		})
+	}
+
+	this.removePost = function(req,res){
+		var userId = req.body.userId
+		var imageUrl = req.body.imageUrl
+
+		var posts = db.collection('posts');
+
+		posts.remove({$and:[{userId:userId},{imageUrl:imageUrl}]});
 	}
 }
 

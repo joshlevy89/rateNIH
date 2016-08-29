@@ -21,7 +21,7 @@ export function save_post(userId, imageUrl) {
 		imageUrl: imageUrl,
 		userId: userId
 	}
-	postApi('api/postsController',body)
+	postApi('api/postsController/savePost',body)
 
 	// modify local state
 	return {
@@ -32,6 +32,14 @@ export function save_post(userId, imageUrl) {
 }
 
 export function delete_post(userId, imageUrl) {
+	// async save to db
+	const body = {
+		imageUrl: imageUrl,
+		userId: userId
+	}
+	postApi('api/postsController/removePost',body)
+
+	//modify local state
 	return {
 		type: 'DELETE_POST',
 		imageUrl: imageUrl,

@@ -33,7 +33,10 @@ module.exports = function(app, db, io) {
 	app.route('/auth/twitter/return')
 		.get(authenticate.twitter_callback)
 
-	app.route('/api/postsController')
+	app.route('/api/postsController/savePost')
 		.post(postsController.savePost)
+
+	app.route('/api/postsController/removePost')
+		.post(postsController.removePost)
 
 }

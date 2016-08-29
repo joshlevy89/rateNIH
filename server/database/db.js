@@ -10,7 +10,7 @@ function db() {
 	  else {
 	  	var isProduction = process.env.NODE_ENV === 'production';
 	  	if (isProduction) {
-	  		//var url = 'mongodb://joshlevy89:Born=1989@ds019480.mlab.com:19480/heroku_gbbl17lz';
+	  		 var url = 'mongodb://joshlevy89:Born=1989@ds019856.mlab.com:19856/heroku_vnxth4c0';
 	    }
 	    else {
 			var url = 'mongodb://localhost:27017/pinclone';
