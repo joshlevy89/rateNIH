@@ -10,10 +10,10 @@ function db() {
 	  else {
 	  	var isProduction = process.env.NODE_ENV === 'production';
 	  	if (isProduction) {
-	  		var url = 'mongodb://joshlevy89:Born=1989@ds019480.mlab.com:19480/heroku_gbbl17lz';
+	  		//var url = 'mongodb://joshlevy89:Born=1989@ds019480.mlab.com:19480/heroku_gbbl17lz';
 	    }
 	    else {
-			var url = 'mongodb://localhost:27017/nightlifeApp';
+			var url = 'mongodb://localhost:27017/pinclone';
 		}
 		var mongo = require('mongodb').MongoClient;
 		mongo.connect(url, function(err,db) {

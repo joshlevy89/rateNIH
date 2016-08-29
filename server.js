@@ -13,11 +13,12 @@ var path = require('path');
 var httpProxy = require('http-proxy');
 var proxy = httpProxy.createProxyServer();
 var isProduction = process.env.NODE_ENV === 'production';
-var port = isProduction ? process.env.PORT : 3000;
+//var port = isProduction ? process.env.PORT : 3000;
 var publicPath = path.resolve(__dirname, 'public');
 
 
 var port = Number(process.env.PORT || 3000);
+
 
 const isDevMode = (process.env.NODE_ENV !== 'production');
 
@@ -44,6 +45,10 @@ if (!isProduction) {
 
 db.dbConnect(function(err,db_instance){
 	routes(app, db_instance, io);
+    // default route that will catch non-index calls
+  app.get('*', (req,res,next)=>{
+    res.sendFile(publicPath+'/index.html');
+  });
 })
 
 // It is important to catch any errors from the proxy or the

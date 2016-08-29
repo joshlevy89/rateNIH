@@ -7,13 +7,17 @@ export function posts(state=initial_state,action) {
 				[action.userId]: action.posts
 			})
 		case 'SAVE_POST':
-			console.log(state);
-			console.log(state[0]);
-			console.log(action.userId);
-			var userPosts = state[action.userId];
-			userPosts.push(action.imageUrl);
+			var userPostsCopy = state[action.userId].slice();
+			userPostsCopy.push(action.imageUrl);
 			return Object.assign({}, state, {
-				[action.userId]: userPosts
+				[action.userId]: userPostsCopy
+			})
+		case 'DELETE_POST':
+			var userPostsCopy = state[action.userId].slice();
+			var index = userPostsCopy.indexOf(action.imageUrl);
+			userPostsCopy.splice(index,1);
+			return Object.assign({}, state, {
+				[action.userId]: userPostsCopy
 			})
 		default:
 			return state

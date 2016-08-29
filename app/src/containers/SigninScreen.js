@@ -15,8 +15,8 @@ class LoginScreen extends Component {
     // todo: replace this mock posts fetch with fetch for the 
     // authenticated user (or for another user's page for 
     // unauthenticated user)
-    const {dispatch} = this.props
-    dispatch(get_posts_by_user_id(0));
+   // const {dispatch} = this.props
+   // dispatch(get_posts_by_user_id(0));
   }
 
   render() {
