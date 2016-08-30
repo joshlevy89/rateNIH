@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import Result from './Result'
+import { Link } from 'react-router';
+require('../../styles/ResultsList.scss');
+
 
 class ResultsList extends Component {
   render() {
@@ -9,8 +11,11 @@ class ResultsList extends Component {
       <div>
       {/* List of results */}
       {results.map(result=>{
-        return <div key={result.business.name}><Result {...this.props} result={result}/></div>
-      })}
+        return (
+            <div key={result}>
+              <Link className="result" to={`/wall/${result}`}>{result}</Link>
+            </div>
+          )})}
       </div>
     );
   }

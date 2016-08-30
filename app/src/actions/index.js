@@ -1,10 +1,6 @@
 // search actions
-import { receive_results, search_yelp } from './search_actions.js'
-export { receive_results, search_yelp }
-
-// attendee actions
-import { mark_attending, try_remove_attendee, mark_remove } from './attendee_actions.js'
-export { mark_attending, try_remove_attendee, mark_remove}
+import { receive_results, search_friends } from './search_actions.js'
+export { receive_results, search_friends }
 
 // signin actions
 export * from './signin_actions'

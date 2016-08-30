@@ -11,13 +11,12 @@ class NavBar extends Component{
     <Navbar>
     	<Navbar.Header>
 	      	<Navbar.Brand>
-	        	<a>Nightlife App</a>
+	        	<a>Pinclone</a>
 	      	</Navbar.Brand>
    		</Navbar.Header>
 	    <Nav>
 	      	<NavItem onClick = {()=>browserHistory.push('/signin')} >Sign In</NavItem>
 	      	<NavItem onClick = {()=>browserHistory.push('/search')} >Search</NavItem>
-	      	<NavItem onClick = {()=>browserHistory.push('/places_attending')} >My Places</NavItem>
 	        <NavItem onClick = {()=>browserHistory.push('/wall/'+user_name)} >My Wall</NavItem>
       </Nav>
   	</Navbar>

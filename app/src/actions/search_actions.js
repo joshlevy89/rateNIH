@@ -13,17 +13,17 @@ function did_not_receive_results() {
 	}
 }
 
-export function search_yelp(location) {
+export function search_friends(searchStr) {
 	return (dispatch) => {
 		dispatch(request_results())
 		const body = {
-			location: location
+			searchStr: searchStr
 		}
 		postApi('api/search',body)
 		.then(response => response.json())
       	.then(json => { 
 	      	if (json.message === 'RESULTS_RECEIVED') {
-	        dispatch(receive_results(json.results))
+	        dispatch(receive_results(json.users))
 	    	}
 	    	else if (json.message === 'NO_RESULTS_RECEIVED') {
 	    	alert('No results were received. Check your spelling.')

@@ -4,6 +4,7 @@ import Masonry from 'react-masonry-component';
 import { get_posts_by_user_id, delete_post } from '../actions'
 import Button from 'react-bootstrap/lib/Button';
 require('../../styles/WallScreen.scss');
+require('../../styles/index.scss')
 
 import ImageAdder from '../components/ImageAdder.js';
 
@@ -25,12 +26,10 @@ var WallScreen = React.createClass({
         const urlUsername = this.props.params.user
 
         if (urlUsername === 'undefined') 
-            return (<div>Search for other walls or sign in to view your wall.</div>)
+            return (<div className="textLayout">Search for other walls or sign in to view your wall.</div>)
 
-
-        console.log(userPosts)
         if (userPosts === undefined || userPosts.length === 0 ) 
-            return (<div>No posts associated with this user.</div>)
+            return (<div className="textLayout">No posts associated with this user.</div>)
         var childElements = userPosts.map(function(imageUrl,index){
            return (
                 <li key={index} className="post-container">

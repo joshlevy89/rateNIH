@@ -4,22 +4,18 @@ require('../../styles/SearchBar.scss')
 class SearchBar extends Component {
   
   handleKeyPress(inputValue,key) {
-  	const { search_yelp } = this.props
+  	const { search_friends } = this.props
   	if (key === 'Enter') {
-  		search_yelp(inputValue)
+  		search_friends(inputValue)
   	}
   }
 
   render() {
     return (
      <div>
-     <h3 className="title">Find local bars</h3>
+     <h3 className="title">Search for friends</h3>
      <input className = "searchBar" ref="searchBar" 
      onKeyPress={e=>this.handleKeyPress(this.refs.searchBar.value,e.key)}/>
-     <div className = "YelpDiv">
-     Powered by Yelp
-     <i className="fa fa-yelp YelpLogo"></i>
-     </div>
      </div>
     );
   }

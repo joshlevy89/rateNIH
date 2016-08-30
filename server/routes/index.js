@@ -16,7 +16,7 @@ module.exports = function(app, db, io) {
 	var postsController = new PostsController(db,io)
 
 	app.route('/api/search')
-		.post(search.search_yelp)
+		.post(search.search_friends)
 
 	app.route('/api/add')
 		.post(add.add_attendee)

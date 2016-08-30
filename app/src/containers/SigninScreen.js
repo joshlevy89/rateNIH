@@ -40,7 +40,7 @@ class LoginScreen extends Component {
       <div className="mainLayout">
       {/* twitter authentication button */}
       <TwitterAuthentication/>
-      <div className="barsLink"><Link to='/search'>Find local bars</Link></div>
+      <div className="barsLink"><Link to='/search'>Search for friends</Link></div>
       </div>
     );
   }

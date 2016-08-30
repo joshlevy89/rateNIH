@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { search_yelp, mark_attending } from '../actions'
+import { search_friends } from '../actions'
 import WaitingDisplay from '../components/WaitingDisplay'
 import ResultsList from '../components/ResultsList'
 import SearchBar from '../components/SearchBar'
@@ -13,9 +13,6 @@ class SearchScreen extends Component {
       <div className="mainLayout">
       {/* waiting display */}
       <WaitingDisplay {...this.props}/>
-      {/* hardcoded Baltimore search 
-      <LocalSearchButton {...this.props}/>
-      */}
       {/* search bar for arbitrary search */}
       <SearchBar {...this.props}/>
       <ResultsList {...this.props}/>
@@ -34,7 +31,7 @@ function mapStateToProps(state) {
 
 SearchScreen = connect(
 mapStateToProps,
-{ search_yelp, mark_attending }
+{ search_friends }
 )(SearchScreen)
 
 export default SearchScreen
