@@ -25,11 +25,13 @@ var WallScreen = React.createClass({
 
         const urlUsername = this.props.params.user
 
-        if (urlUsername === 'undefined') 
+        if (urlUsername === 'undefined') {
             return (<div className="textLayout">Search for other walls or sign in to view your wall.</div>)
-
-        if (userPosts === undefined || userPosts.length === 0 ) 
-            return (<div className="textLayout">No posts associated with this user.</div>)
+        }
+        if (userPosts === undefined || userPosts.length === 0) {
+            var childElements = (<div className="textLayout">No posts here yet.</div>)
+        }
+        else {
         var childElements = userPosts.map(function(imageUrl,index){
            return (
                 <li key={index} className="post-container">
@@ -44,7 +46,7 @@ var WallScreen = React.createClass({
                     :null}
                 </li>
             );
-        });
+        })};
 
         return (
             <span>
