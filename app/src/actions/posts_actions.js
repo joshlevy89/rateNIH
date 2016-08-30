@@ -1,25 +1,43 @@
 import { postApi, getApi } from '../api-methods'
 
 
-export function get_posts_by_user_id(userId) {
+export function get_posts_by_user_id(user) {
 
 	// todo: replace mock api call with real
 	//var posts = ['a.png', 'b.png'];
-	var posts = [];
+	// var posts = [];
+
+	// return {
+	// 	type: 'RECEIVE_POSTS_FOR_USER_ID',
+	// 	posts: posts,
+	// 	user: user
+	// }
+
+	const body = {
+		user: user
+	}
+
+	postApi('api/postsController/getPostsByUserId',body)
 
 	return {
-		type: 'RECEIVE_POSTS_FOR_USER_ID',
-		posts: posts,
-		userId: userId
+		type: 'GET_POSTS_FOR_USER_ID'
 	}
 }
 
-export function save_post(userId, imageUrl) {
+export function receive_posts_for_user_id(user, posts){
+	return {
+		type: 'RECEIVE_POSTS_FOR_USER_ID',
+		posts: posts,
+		user: user
+	}
+}
+
+export function save_post(user, imageUrl) {
 
 	// async save to db
 	const body = {
 		imageUrl: imageUrl,
-		userId: userId
+		user: user
 	}
 	postApi('api/postsController/savePost',body)
 
@@ -27,15 +45,15 @@ export function save_post(userId, imageUrl) {
 	return {
 		type: 'SAVE_POST',
 		imageUrl: imageUrl,
-		userId: userId
+		user: user
 	}
 }
 
-export function delete_post(userId, imageUrl) {
+export function delete_post(user, imageUrl) {
 	// async save to db
 	const body = {
 		imageUrl: imageUrl,
-		userId: userId
+		user: user
 	}
 	postApi('api/postsController/removePost',body)
 
@@ -43,6 +61,6 @@ export function delete_post(userId, imageUrl) {
 	return {
 		type: 'DELETE_POST',
 		imageUrl: imageUrl,
-		userId: userId
+		user: user
 	}
 }

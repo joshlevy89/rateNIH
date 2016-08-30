@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 class NavBar extends Component{
   render() {
-    const { dispatch } = this.props
+    const { dispatch,user_name } = this.props
     return (
     <div>
     <Navbar>
@@ -18,7 +18,7 @@ class NavBar extends Component{
 	      	<NavItem onClick = {()=>browserHistory.push('/signin')} >Sign In</NavItem>
 	      	<NavItem onClick = {()=>browserHistory.push('/search')} >Search</NavItem>
 	      	<NavItem onClick = {()=>browserHistory.push('/places_attending')} >My Places</NavItem>
-	        <NavItem onClick = {()=>browserHistory.push('/mywall')} >My Wall</NavItem>
+	        <NavItem onClick = {()=>browserHistory.push('/wall/'+user_name)} >My Wall</NavItem>
       </Nav>
   	</Navbar>
   	        {this.props.children}
@@ -27,6 +27,10 @@ class NavBar extends Component{
   }
 };
 
-NavBar = connect()(NavBar)
+function mapStateToProps(state){
+    return { user_name: state.user_info.user_name }
+}
+
+NavBar = connect(mapStateToProps)(NavBar)
 
 export default NavBar

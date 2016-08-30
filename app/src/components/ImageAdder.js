@@ -65,7 +65,7 @@ var ImageAdder = React.createClass({
 
  
   render: function() {
-    const { dispatch } = this.props;
+    const { dispatch, user_name } = this.props;
     return (
       <div>
 
@@ -101,7 +101,7 @@ var ImageAdder = React.createClass({
                   alert("Must enter an image link to post!");
                   return;
                 }
-                dispatch(save_post(0,this.state.imageUrl));
+                dispatch(save_post(user_name,this.state.imageUrl));
                 this.closeModal();
                 this.resetImageUrl();
                 }}>

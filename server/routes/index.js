@@ -39,4 +39,6 @@ module.exports = function(app, db, io) {
 	app.route('/api/postsController/removePost')
 		.post(postsController.removePost)
 
+	app.route('/api/postsController/getPostsByUserId')
+		.post(postsController.getPostsByUserId)
 }

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Masonry from 'react-masonry-component';
 import { get_posts_by_user_id, delete_post } from '../actions'
 import Button from 'react-bootstrap/lib/Button';
-require('../../styles/MyWallScreen.scss');
+require('../../styles/WallScreen.scss');
 
 import ImageAdder from '../components/ImageAdder.js';
 
@@ -11,33 +11,46 @@ var masonryOptions = {
     transitionDuration: 0
 };
 
-var MyWallScreen = React.createClass({
+var WallScreen = React.createClass({
 
     componentDidMount: function() {
         const {dispatch} = this.props
-        dispatch(get_posts_by_user_id(0));
+                const urlUsername = this.props.params.user
+        dispatch(get_posts_by_user_id(urlUsername));
     },
 
     render: function () {
-        const { userPosts, dispatch } = this.props;
-        if (userPosts == null) return (<div></div>)
+        const { userPosts, dispatch, user_name } = this.props;
+
+        const urlUsername = this.props.params.user
+
+        if (urlUsername === 'undefined') 
+            return (<div>Search for other walls or sign in to view your wall.</div>)
+
+
+        console.log(userPosts)
+        if (userPosts === undefined || userPosts.length === 0 ) 
+            return (<div>No posts associated with this user.</div>)
         var childElements = userPosts.map(function(imageUrl,index){
            return (
                 <li key={index} className="post-container">
                     <img className = "image" src={imageUrl}/>
+                    {user_name === urlUsername ? 
                     <div>
                         <Button bsStyle="danger"
-                                onClick = {() => dispatch(delete_post(0, imageUrl))}>
+                                onClick = {() => dispatch(delete_post(user_name, imageUrl))}>
                             Delete
                         </Button>
                     </div>
+                    :null}
                 </li>
             );
         });
 
         return (
             <span>
-            <ImageAdder />
+            {user_name===urlUsername ? 
+                <ImageAdder user_name = {user_name}/>:null}
             <Masonry
                 className={'my-gallery-class'} // default ''
                 elementType={'ul'} // default 'div'
@@ -52,13 +65,24 @@ var MyWallScreen = React.createClass({
     }
 });
 
-function mapStateToProps(state) {
-  return {
-    userPosts: state.posts[0]
-  }
+function mapStateToProps(state, ownProps) {
+  const urlUsername = ownProps.params.user
+  console.log(state.posts[urlUsername]);
+  if (urlUsername === undefined) {
+    return { 
+        userPosts: [],
+        user_name: undefined 
+    }
+    }
+  else {
+    return { 
+        userPosts: state.posts[urlUsername],
+        user_name: state.user_info.user_name 
+    }
+   }
 }
 
-export default connect(mapStateToProps)(MyWallScreen);
+export default connect(mapStateToProps)(WallScreen);
 
 
 
