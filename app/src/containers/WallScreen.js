@@ -69,7 +69,6 @@ var WallScreen = React.createClass({
 
 function mapStateToProps(state, ownProps) {
   const urlUsername = ownProps.params.user
-  console.log(state.posts[urlUsername]);
   if (urlUsername === undefined) {
     return { 
         userPosts: [],
