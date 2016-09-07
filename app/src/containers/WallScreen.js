@@ -34,17 +34,18 @@ var WallScreen = React.createClass({
         else {
         var childElements = userPosts.map(function(imageUrl,index){
            return (
-                <li key={index} className="post-container">
+                <span>
                     <img className = "image" src={imageUrl}/>
                     {user_name === urlUsername ? 
                     <div>
                         <Button bsStyle="danger"
+                                block
                                 onClick = {() => dispatch(delete_post(user_name, imageUrl))}>
                             Delete
                         </Button>
                     </div>
                     :null}
-                </li>
+                </span>
             );
         })};
 
@@ -54,7 +55,7 @@ var WallScreen = React.createClass({
                 <ImageAdder user_name = {user_name}/>:null}
             <Masonry
                 className={'my-gallery-class'} // default ''
-                elementType={'ul'} // default 'div'
+                elementType={'div'} // default 'div'
                 options={masonryOptions} // default {}
                 disableImagesLoaded={false} // default false
                 updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
