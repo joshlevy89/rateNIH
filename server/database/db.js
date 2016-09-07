@@ -9,6 +9,9 @@ function db() {
 	  }
 	  else {
 	  	var isProduction = process.env.NODE_ENV === 'production';
+	  	console.log("IS THIS PRODUCTION?")
+	  	console.log(isProduction);
+
 	  	if (isProduction) {
 	  		 var url = 'mongodb://joshlevy89:Born=1989@ds019856.mlab.com:19856/heroku_vnxth4c0';
 	    }
