@@ -8,8 +8,8 @@ app.use(passport.session());
 var isProduction = process.env.NODE_ENV === 'production';
 if (isProduction) {
   var credentials = {
-    consumerKey: "iWLqGs4FvOU5BquzV7ThZDFw5",
-    consumerSecret: "BmanTkz22qqtjRStMfFjVnAAVZ0dLRXKUNb9sTivG0ANcan5Gu",
+    consumerKey: "1CmmizpbwXzS7BKHP9xfp15HH",
+    consumerSecret: "wAZjNGw9qA9s7u0UvawrnNjybAkkoruzkyHWS3XQXR3lTDcdQt",
   }
 }
 else {
