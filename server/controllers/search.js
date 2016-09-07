@@ -3,6 +3,8 @@ function search(db, io) {
 this.search_friends = function(req,res) {
 	
 		var searchStr = req.body.searchStr
+		console.log("HI THERE!")
+		console.log(db);
 
 		var posts = db.collection('posts');
 
