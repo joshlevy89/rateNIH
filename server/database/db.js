@@ -14,6 +14,8 @@ function db() {
 
 	  	if (isProduction) {
 	  		 var url = 'mongodb://joshlevy89:Born=1989@ds019856.mlab.com:19856/heroku_vnxth4c0';
+	    	//		var url = 'mongodb://localhost:27017/pinclone';
+
 	    }
 	    else {
 			var url = 'mongodb://localhost:27017/pinclone';

@@ -44,6 +44,7 @@ if (!isProduction) {
 }
 
 db.dbConnect(function(err,db_instance){
+  console.log(err);
 	routes(app, db_instance, io);
     // default route that will catch non-index calls
   app.get('*', (req,res,next)=>{
