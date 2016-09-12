@@ -31,7 +31,7 @@ export function signin(user_name) {
 	.then(function(data) {
 		if (data.message === 'signin_successful') {
 			browserHistory.push('/search')
-			dispatch(receive_user_places(data.places_user_attending))
+			//dispatch(receive_user_places(data.places_user_attending))
 			dispatch(signin_success(user_name))
 		}
 	})
