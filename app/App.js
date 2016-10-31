@@ -18,15 +18,6 @@ let store = createStore(
 );
 
 var socket = io.connect('/');
-socket.on('places_attending_updated', function(updated_place) {
-    store.dispatch(update_places(updated_place))
-});
-
-socket.on('receive_posts_for_user_id', function(data) {
-	var user = data.user;
-	var posts = data.posts;
-    store.dispatch(receive_posts_for_user_id(user,posts))
-});
 
 export default class App extends Component {
   render() {

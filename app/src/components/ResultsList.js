@@ -6,16 +6,11 @@ require('../../styles/ResultsList.scss');
 class ResultsList extends Component {
   render() {
   	const { results } = this.props
-    sessionStorage.setItem("results", JSON.stringify(results));
+    if (results === null) return <div></div>
     return (
-      <div>
-      {/* List of results */}
-      {results.map(result=>{
-        return (
-            <div key={result}>
-              <Link className="result" to={`/wall/${result}`}>{result}</Link>
-            </div>
-          )})}
+      <div className="result">
+        <div>Male adverse events: {results.male}</div>
+        <div>Female adverse events: {results.female}</div>
       </div>
     );
   }

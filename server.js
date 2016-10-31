@@ -13,7 +13,6 @@ var path = require('path');
 var httpProxy = require('http-proxy');
 var proxy = httpProxy.createProxyServer();
 var isProduction = process.env.NODE_ENV === 'production';
-//var port = isProduction ? process.env.PORT : 3000;
 var publicPath = path.resolve(__dirname, 'public');
 
 
@@ -23,7 +22,7 @@ var port = Number(process.env.PORT || 3000);
 const isDevMode = (process.env.NODE_ENV !== 'production');
 
 app.use('/',express.static(publicPath));
-app.use('/signin/*',express.static(publicPath));
+app.use('/search/*',express.static(publicPath));
 app.use(bodyParser.json());
 app.use(cors());
 app.use(require('morgan')('combined'));

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { search_friends } from '../actions'
+import { search_drug } from '../actions'
 import WaitingDisplay from '../components/WaitingDisplay'
 import ResultsList from '../components/ResultsList'
 import SearchBar from '../components/SearchBar'
@@ -24,14 +24,13 @@ class SearchScreen extends Component {
 function mapStateToProps(state) {
 	return {
 		request_status: state.search_info.request_status,
-    results: state.search_info.results,
-    user_name: state.user_info.user_name
+    results: state.search_info.results
 	}
 }
 
 SearchScreen = connect(
 mapStateToProps,
-{ search_friends }
+{ search_drug }
 )(SearchScreen)
 
 export default SearchScreen

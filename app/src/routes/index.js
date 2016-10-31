@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
 import { Route, IndexRoute } from 'react-router'
-import SigninScreen from '../containers/SigninScreen'
-import SearchScreen from '../containers/SearchScreen'
-import WallScreen from '../containers/WallScreen'
+import SearchScreen from '../containers/SearchScreen.js'
+import Plot1Screen from '../components/Plot1Screen.js'
+import Plot2Screen from '../components/Plot2Screen.js'
+
 import NavBar from '../containers/NavBar'
 
 module.exports = (
 <Route path ="/" component={NavBar}>
-	<IndexRoute component={SigninScreen} />
-	<Route path="/signin" component={SigninScreen}/>
-	<Route path="/signin/:urlUsername" component={SigninScreen}/>
+	<IndexRoute component={SearchScreen} />
 	<Route path="/search" component={SearchScreen}/>
-	<Route path="/wall/:user" component={WallScreen}/>
+	<Route path="/plot1" component={Plot1Screen}/>
+	<Route path="/plot2" component={Plot2Screen}/>
 </Route>
 )
