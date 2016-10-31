@@ -19,7 +19,7 @@ export function search_drug(searchStr) {
 		fetch(url+searchStr)
 		.then(response => response.json())
       	.then(json => { 
-	      	if (json) { dispatch(receive_results(json)) }
+	      	if (json.error == null) { dispatch(receive_results(json)) }
 	    	else {
 	    		alert('No results were received. Check your spelling.')
 	    		dispatch(did_not_receive_results())
