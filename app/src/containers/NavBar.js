@@ -11,13 +11,14 @@ class NavBar extends Component{
     <Navbar>
     	<Navbar.Header>
 	      	<Navbar.Brand>
-	        	<a>myFDA</a>
+	        	<a>rateNIH</a>
 	      	</Navbar.Brand>
    		</Navbar.Header>
 	    <Nav>
-	      	<NavItem onClick = {()=>browserHistory.push('/search')} >Search</NavItem>
+	      	<NavItem onClick = {()=>browserHistory.push('/welcome')} >Welcome</NavItem>
           <NavItem onClick = {()=>browserHistory.push('/plot1')} >Plot 1</NavItem>
           <NavItem onClick = {()=>browserHistory.push('/plot2')} >Plot 2</NavItem>
+          <NavItem onClick = {()=>browserHistory.push('/plot3')} >Plot 3</NavItem>
       </Nav>
   	</Navbar>
   	        {this.props.children}
